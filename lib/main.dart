@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app.dart';
-import 'features/wardrobe/data/seed_wardrobe_repository.dart';
+import 'core/db/app_database.dart';
+import 'features/wardrobe/data/drift_wardrobe_repository.dart';
 import 'shared/providers/wardrobe_data_providers.dart';
 
 /// Composition root: the only place that binds domain interfaces to their
@@ -11,8 +12,8 @@ void main() {
   runApp(
     ProviderScope(
       overrides: [
-        wardrobeRepositoryProvider.overrideWithValue(
-          const SeedWardrobeRepository(),
+        wardrobeRepositoryProvider.overrideWith(
+          (ref) => DriftWardrobeRepository(ref.watch(appDatabaseProvider)),
         ),
       ],
       child: const WardrobeApp(),
