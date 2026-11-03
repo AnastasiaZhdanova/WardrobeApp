@@ -1,7 +1,6 @@
 # WardrobeApp
 
-<!-- TODO: replace OWNER/REPO once the repository is on GitHub. -->
-[![CI](https://github.com/OWNER/REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/REPO/actions/workflows/ci.yml)
+[![CI](https://github.com/AnastasiaZhdanova/WardrobeApp/actions/workflows/ci.yml/badge.svg)](https://github.com/AnastasiaZhdanova/WardrobeApp/actions/workflows/ci.yml)
 
 WardrobeApp is a private wardrobe app for iOS and Android with an AI
 styling assistant. You browse your clothes across several residences and
@@ -103,7 +102,7 @@ Requires Flutter stable (Dart 3.12.2 or newer) and Xcode or Android Studio
 for a device or simulator.
 
 ```sh
-git clone <repo-url> wardrobe_app && cd wardrobe_app
+git clone https://github.com/AnastasiaZhdanova/WardrobeApp.git && cd WardrobeApp
 flutter pub get
 dart run build_runner build --delete-conflicting-outputs
 flutter run
