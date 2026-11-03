@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'app.dart';
+import 'features/wardrobe/data/seed_wardrobe_repository.dart';
+import 'shared/providers/wardrobe_data_providers.dart';
+
+/// Composition root: the only place that binds domain interfaces to their
+/// data-layer implementations.
 void main() {
   runApp(
-    const MaterialApp(
-      title: 'WardrobeApp',
-      home: Scaffold(body: Center(child: Text('WardrobeApp'))),
+    ProviderScope(
+      overrides: [
+        wardrobeRepositoryProvider.overrideWithValue(
+          const SeedWardrobeRepository(),
+        ),
+      ],
+      child: const WardrobeApp(),
     ),
   );
 }
