@@ -51,7 +51,8 @@ class _StylingRequestScreenState extends ConsumerState<StylingRequestScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('Style request')),
       body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
+        // Top padding keeps the field's floating label inside the scroll area.
+        padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
         children: [
           TextField(
             key: const ValueKey('request-text'),

@@ -11,8 +11,9 @@ app keeps what the assistant proposed next to what was approved.
 
 ## Screenshots
 
-<!-- TODO: add screenshots or a short GIF to docs/screenshots/ and link them here. -->
-> **TODO:** screenshots of Wardrobe, Style request, Stylist review and App lock.
+| Wardrobe | Style request | Stylist review | App lock |
+| --- | --- | --- | --- |
+| <img src="docs/screenshots/wardrobe.png" width="220" alt="Wardrobe grid with residence, season and colour filters"> | <img src="docs/screenshots/style-request.png" width="220" alt="Style request with three outfit drafts from the mock agent"> | <img src="docs/screenshots/stylist-review.png" width="220" alt="Stylist review of a draft with swap, reject and approve"> | <img src="docs/screenshots/app-lock.png" width="220" alt="App lock screen with an Unlock button"> |
 
 ## Features
 
