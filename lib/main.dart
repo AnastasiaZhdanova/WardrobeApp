@@ -4,6 +4,8 @@ import 'package:http/http.dart' as http;
 
 import 'app.dart';
 import 'core/db/app_database.dart';
+import 'features/app_lock/data/method_channel_device_auth.dart';
+import 'features/app_lock/presentation/app_lock_controller.dart';
 import 'features/review/data/drift_review_repository.dart';
 import 'features/styling/data/fallback_styling_agent.dart';
 import 'features/styling/data/llm/anthropic_messages_client.dart';
@@ -49,6 +51,7 @@ void main() {
           (ref) => DriftReviewRepository(ref.watch(appDatabaseProvider)),
         ),
         stylingAgentProvider.overrideWithValue(_stylingAgent()),
+        deviceAuthProvider.overrideWithValue(const MethodChannelDeviceAuth()),
       ],
       child: const WardrobeApp(),
     ),
