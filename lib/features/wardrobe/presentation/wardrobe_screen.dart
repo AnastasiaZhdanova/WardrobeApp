@@ -30,7 +30,17 @@ class WardrobeScreen extends ConsumerWidget {
                   .clear,
               child: const Text('Clear'),
             ),
+          IconButton(
+            tooltip: 'Review queue',
+            onPressed: () => context.push(Routes.reviewQueue),
+            icon: const Icon(Icons.fact_check_outlined),
+          ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => context.push(Routes.style),
+        icon: const Icon(Icons.auto_awesome_outlined),
+        label: const Text('Style me'),
       ),
       body: Column(
         children: [

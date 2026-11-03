@@ -26,12 +26,37 @@ class WardrobeItems extends Table {
   Set<Column<Object>> get primaryKey => {id};
 }
 
-@DriftDatabase(tables: [WardrobeItems])
+/// Stylist decisions on agent drafts. Item id lists are comma-separated.
+@DataClassName('ReviewedOutfitRow')
+class ReviewedOutfits extends Table {
+  TextColumn get id => text()();
+  TextColumn get requestText => text()();
+  TextColumn get title => text()();
+  TextColumn get rationale => text()();
+  TextColumn get proposedItemIds => text()();
+  TextColumn get itemIds => text()();
+  TextColumn get status => text()();
+  DateTimeColumn get createdAt => dateTime()();
+  DateTimeColumn get decidedAt => dateTime().nullable()();
+
+  @override
+  Set<Column<Object>> get primaryKey => {id};
+}
+
+@DriftDatabase(tables: [WardrobeItems, ReviewedOutfits])
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.executor);
 
+  /// v2 adds [ReviewedOutfits].
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
+
+  @override
+  MigrationStrategy get migration => MigrationStrategy(
+    onUpgrade: (m, from, to) async {
+      if (from < 2) await m.createTable(reviewedOutfits);
+    },
+  );
 }
 
 @Riverpod(keepAlive: true)
